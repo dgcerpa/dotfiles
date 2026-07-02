@@ -26,3 +26,4 @@ __pycache__/
 
 # Local machine-specific overrides
 *.local
+micro/.config/micro/buffers/
