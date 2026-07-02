@@ -1,0 +1,10 @@
+show=drun
+width=600
+height=400
+location=center
+allow_images=true
+image_size=24
+prompt=Buscar...
+insensitive=true
+hide_scroll=true
+matching=fuzzy

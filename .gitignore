@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Backups
+*.bak
+*.old
+*.orig
+
+# Cache and state (in case anything sneaks in from ~/.config/)
+*/cache/
+*/state/
+*/logs/
+*/.cache/
+
+# Compiled
+*.pyc
+__pycache__/
+
+# Local machine-specific overrides
+*.local

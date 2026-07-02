@@ -1,0 +1,62 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 4,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/weather", "clock"],
+  "modules-right": ["backlight", "pulseaudio", "network", "battery", "tray"],
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+  "clock": {
+    "format": "{:%H:%M  ·  %a %d %b}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/weather": {
+      "exec": "curl -s 'https://wttr.in/?format=%c+%t&m' | tr -d '+'",
+      "interval": 600,
+      "format": "{}",
+      "tooltip": true,
+      "on-click": "kweather"
+  },
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% \uf0e7",
+    "format-plugged": "{capacity}% \uf1e6",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) \uf1eb",
+    "format-ethernet": "{ipaddr} \uf796",
+    "format-disconnected": "Sin red \uf071",
+    "tooltip-format": "{ifname}: {ipaddr}"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "muted \uf6a9",
+    "format-icons": { "default": ["\uf026", "\uf027", "\uf028"] },
+    "on-click": "pavucontrol"
+  },
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "{percent}% {icon}",
+    "format-icons": ["\uf186", "\uf185", "\uf0eb"],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "tray": {
+    "spacing": 10
+  }
+}
