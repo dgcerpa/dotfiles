@@ -26,6 +26,9 @@ end)
 ---- ENTORNO ----
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 ---- ASPECTO ----
 hl.config({
@@ -134,3 +137,11 @@ hl.bind("F12", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 ---- SCREENSHOTS ----
 hl.bind(mod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | tee "$HOME/Imágenes/Capturas de pantalla/$(date +'%Y-%m-%d_%H-%M-%S')_region.png" | wl-copy]]))
 hl.bind("Print", hl.dsp.exec_cmd([[grim "$HOME/Imágenes/Capturas de pantalla/$(date +'%Y-%m-%d_%H-%M-%S').png" && grim - | wl-copy]]))
+
+---- WINDOW RULES ----
+-- Ignora las peticiones de maximizar de las apps (kitty pide maximizarse al abrir)
+hl.window_rule({
+    name = "suppress-maximize-events",
+    match = { class = ".*" },
+    suppress_event = "maximize",
+})

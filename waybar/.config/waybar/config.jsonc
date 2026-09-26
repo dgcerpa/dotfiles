@@ -6,51 +6,68 @@
   "margin-top": 6,
   "margin-left": 10,
   "margin-right": 10,
-  "modules-left": ["hyprland/workspaces"],
+
+  "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["custom/weather", "clock"],
-  "modules-right": ["backlight", "pulseaudio", "network", "battery", "tray"],
+  "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "tray", "custom/power"],
+
   "hyprland/workspaces": {
     "format": "{id}",
     "on-click": "activate",
     "sort-by-number": true
   },
-  "hyprland/window": {
-    "format": "{title}",
-    "max-length": 50,
-    "separate-outputs": true
+
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-len": 35,
+    "dynamic-order": ["title", "artist"],
+    "player-icons": { "default": "\uf001", "spotify": "\uf1bc" },
+    "status-icons": { "paused": "\uf04c" },
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "tooltip-format": "{title}\n{artist}\n{album}"
   },
+
   "clock": {
     "format": "{:%H:%M  ·  %a %d %b}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+
   "custom/weather": {
-      "exec": "curl -s 'https://wttr.in/?format=%c+%t&m' | tr -d '+'",
-      "interval": 600,
-      "format": "{}",
-      "tooltip": true,
-      "on-click": "kweather"
+    "exec": "curl -s 'https://wttr.in/?format=%c+%t&m' | tr -d '+'",
+    "interval": 600,
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "gnome-weather"
   },
-  "battery": {
-    "states": { "warning": 30, "critical": 15 },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% \uf0e7",
-    "format-plugged": "{capacity}% \uf1e6",
-    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+
+  "bluetooth": {
+    "format": "\uf293",
+    "format-disabled": "\uf293 off",
+    "format-connected": "\uf293 {num_connections}",
+    "tooltip-format": "{controller_alias}\n{num_connections} conectado(s)",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager"
   },
-	"network": {
+
+  "network": {
     "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "󰈁 Connected",
+    "format-ethernet": "\udb80\udc01 Connected",
     "tooltip-format": "{ifname}",
-    "format-linked": "󰈁 {ifname} (No IP)",
-    "format-disconnected": "󰤮 Disconnected",
-    "on-click": "nm-connectionEditor"
-},
+    "format-linked": "\udb80\udc01 {ifname} (No IP)",
+    "format-disconnected": "\udb80\udd2e Disconnected",
+    "on-click": "nm-connection-editor"
+  },
+
   "pulseaudio": {
     "format": "{volume}% {icon}",
     "format-muted": "muted \uf6a9",
     "format-icons": { "default": ["\uf026", "\uf027", "\uf028"] },
     "on-click": "pavucontrol"
   },
+
   "backlight": {
     "device": "amdgpu_bl1",
     "format": "{percent}% {icon}",
@@ -58,7 +75,20 @@
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
   },
-  "tray": {
-    "spacing": 10
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% \uf0e7",
+    "format-plugged": "{capacity}% \uf1e6",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+
+  "tray": { "spacing": 10 },
+
+  "custom/power": {
+    "format": "\uf011",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/power-menu.sh"
   }
 }

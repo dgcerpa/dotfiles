@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════════════════════
+   WAYBAR · pastillas · paleta azul
+   ═══════════════════════════════════════════════════════════ */
+
 * {
   font-family: "JetBrains Mono Nerd Font", "JetBrains Mono", monospace;
   font-size: 13px;
@@ -5,23 +9,64 @@
   min-height: 0;
 }
 
+/* La barra en sí es invisible: solo contiene las pastillas */
 window#waybar {
-  background: rgba(10, 20, 48, 0.85);
+  background: transparent;
   color: #e8efff;
+}
+
+/* ─── Pastilla base ─────────────────────────────────────── */
+#workspaces,
+#custom-weather,
+#clock,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+  background: rgba(10, 20, 48, 0.85);
   border: 1px solid rgba(165, 205, 255, 0.15);
   border-radius: 8px;
+  padding: 0 14px;
+  margin: 0 3px;
+  color: #e8efff;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+#workspaces:hover,
+#custom-weather:hover,
+#clock:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+  background: rgba(15, 29, 63, 0.95);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* ─── Workspaces ────────────────────────────────────────── */
+#workspaces {
+  padding: 0 4px;
 }
 
 #workspaces button {
-  padding: 0 10px;
+  padding: 0 9px;
+  margin: 3px 2px;
   color: #a5cdff;
   background: transparent;
-  border-radius: 4px;
+  border-radius: 5px;
+  transition: background 200ms ease, color 200ms ease, padding 200ms ease;
+}
+
+#workspaces button:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: #e8efff;
 }
 
 #workspaces button.active {
   color: #050b1a;
   background: #3b82f6;
+  padding: 0 16px;
 }
 
 #workspaces button.urgent {
@@ -29,20 +74,83 @@ window#waybar {
   color: #050b1a;
 }
 
-#clock,
-#battery,
-#network,
-#pulseaudio,
-#tray,
-#window {
-  padding: 0 12px;
-  color: #e8efff;
+/* ─── Acentos por módulo ────────────────────────────────── */
+#clock          { color: #e8efff; font-weight: 500; }
+#custom-weather { color: #a5cdff; }
+#backlight      { color: #fbbf24; }
+#pulseaudio     { color: #38bdf8; }
+#network        { color: #60a5fa; }
+#battery        { color: #4ade80; }
+
+/* ─── Estados ───────────────────────────────────────────── */
+#battery.warning  { color: #fbbf24; }
+#battery.critical {
+  color: #050b1a;
+  background: #f87171;
+  border-color: #f87171;
 }
 
-#battery.warning  { color: #fbbf24; }
-#battery.critical { color: #ef4444; }
+#pulseaudio.muted {
+  color: #6b7f9e;
+}
 
-#backlight {
-    color: #38bdf8;
-    padding: 0 10px;
+#network.disconnected {
+  color: #f87171;
+}
+
+/* ─── Tray ──────────────────────────────────────────────── */
+#tray {
+  padding: 0 10px;
+}
+
+#tray menu {
+  background: #0a1430;
+  color: #e8efff;
+  border: 1px solid rgba(165, 205, 255, 0.15);
+}
+
+/* ─── Módulos nuevos ────────────────────────────────────── */
+#mpris,
+#bluetooth,
+#custom-power {
+  background: rgba(10, 20, 48, 0.85);
+  border: 1px solid rgba(165, 205, 255, 0.15);
+  border-radius: 8px;
+  padding: 0 14px;
+  margin: 0 3px;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+#mpris:hover,
+#bluetooth:hover,
+#custom-power:hover {
+  background: rgba(15, 29, 63, 0.95);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+#mpris            { color: #4ade80; }
+#mpris.paused     { color: #6b7f9e; }
+#bluetooth        { color: #60a5fa; }
+#bluetooth.disabled { color: #6b7f9e; }
+#custom-power     { color: #f87171; }
+
+#custom-power:hover {
+  background: #f87171;
+  border-color: #f87171;
+  color: #050b1a;
+}
+
+/* ─── Tooltips ──────────────────────────────────────────── */
+tooltip {
+  background: rgba(10, 20, 48, 0.97);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+tooltip label {
+  color: #e8efff;
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 12.5px;
+  padding: 6px 10px;
 }
