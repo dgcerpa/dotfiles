@@ -19,7 +19,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("sh -c 'waybar >> ~/.cache/waybar.log 2>&1'")
     hl.exec_cmd("blueman-applet")
     hl.exec_cmd("nm-applet")
-    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("~/.config/hypr/scripts/random-wallpaper.sh")
     -- gnome-keyring lo arranca PAM al login; la linea del .conf era redundante
 end)
 
