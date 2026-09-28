@@ -1,0 +1,48 @@
+# Yazi · paleta azul del rice
+# Sin [app].overall a propósito: así hereda la opacidad de kitty.
+
+[mgr]
+cwd             = { fg = "#38bdf8", bold = true }
+find_keyword    = { fg = "#fbbf24", bold = true }
+find_position   = { fg = "#c084fc" }
+symlink_target  = { fg = "#a5cdff", italic = true }
+
+marker_copied   = { fg = "#4ade80", bg = "#4ade80" }
+marker_cut      = { fg = "#f87171", bg = "#f87171" }
+marker_marked   = { fg = "#38bdf8", bg = "#38bdf8" }
+marker_selected = { fg = "#fbbf24", bg = "#fbbf24" }
+
+count_copied    = { fg = "#050b1a", bg = "#4ade80" }
+count_cut       = { fg = "#050b1a", bg = "#f87171" }
+count_selected  = { fg = "#050b1a", bg = "#fbbf24" }
+
+border_symbol   = "│"
+border_style    = { fg = "#1e2a4f" }
+
+[indicator]
+current = { fg = "#050b1a", bg = "#3b82f6", bold = true }
+parent  = { fg = "#e8efff", bg = "#0f1d3f" }
+preview = { fg = "#e8efff", bg = "#0a1430" }
+
+[mode]
+normal_main = { fg = "#050b1a", bg = "#3b82f6", bold = true }
+normal_alt  = { fg = "#3b82f6", bg = "#0a1430" }
+select_main = { fg = "#050b1a", bg = "#4ade80", bold = true }
+select_alt  = { fg = "#4ade80", bg = "#0a1430" }
+unset_main  = { fg = "#050b1a", bg = "#f87171", bold = true }
+unset_alt   = { fg = "#f87171", bg = "#0a1430" }
+
+[tabs]
+active   = { fg = "#050b1a", bg = "#3b82f6", bold = true }
+inactive = { fg = "#a5cdff", bg = "#0a1430" }
+
+[status]
+overall         = { fg = "#e8efff" }
+perm_type       = { fg = "#38bdf8" }
+perm_read       = { fg = "#fbbf24" }
+perm_write      = { fg = "#f87171" }
+perm_exec       = { fg = "#4ade80" }
+perm_sep        = { fg = "#a5cdff", dim = true }
+progress_label  = { fg = "#e8efff", bold = true }
+progress_normal = { fg = "#3b82f6", bg = "#0a1430" }
+progress_error  = { fg = "#f87171", bg = "#0a1430" }

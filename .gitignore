@@ -27,3 +27,6 @@ __pycache__/
 # Local machine-specific overrides
 *.local
 micro/.config/micro/buffers/
+
+# Generado por random-wallpaper.sh en cada login
+hypr/.config/hypr/hyprpaper.conf

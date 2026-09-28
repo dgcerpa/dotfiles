@@ -9,7 +9,7 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 ---- PROGRAMAS ----
 local mod         = "SUPER"
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "thunar"
 
 ---- AUTOSTART ----
 hl.on("hyprland.start", function()
@@ -47,7 +47,7 @@ hl.config({
         blur = {
             enabled = true,
             size = 6,
-            passes = 2,
+            passes = 1,
             new_optimizations = true,
             noise = 0.015,
             contrast = 1.0,
@@ -74,12 +74,12 @@ hl.curve("snappy",    { type = "bezier", points = { {0.4,  0.0}, {0.2, 1.0} } })
 hl.curve("smooth",    { type = "bezier", points = { {0.4,  0.0}, {0.6, 1.0} } })
 
 ---- ANIMACIONES ----
-hl.animation({ leaf = "windows",     enabled = true, speed = 4, bezier = "overshoot", style = "popin 80%" })
-hl.animation({ leaf = "windowsOut",  enabled = true, speed = 4, bezier = "cinematic", style = "popin 80%" })
-hl.animation({ leaf = "fade",        enabled = true, speed = 4, bezier = "smooth" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "snappy" })
-hl.animation({ leaf = "workspaces",  enabled = true, speed = 4, bezier = "cinematic", style = "slide" })
-hl.animation({ leaf = "border",      enabled = true, speed = 3, bezier = "smooth" })
+hl.animation({ leaf = "windows",     enabled = true, speed = 3, bezier = "overshoot", style = "popin 80%" })
+hl.animation({ leaf = "windowsOut",  enabled = true, speed = 3, bezier = "cinematic", style = "popin 80%" })
+hl.animation({ leaf = "fade",        enabled = true, speed = 3, bezier = "smooth" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "snappy" })
+hl.animation({ leaf = "workspaces",  enabled = true, speed = 3, bezier = "cinematic", style = "slide" })
+hl.animation({ leaf = "border",      enabled = true, speed = 2, bezier = "smooth" })
 
 ---- APPS Y SESION ----
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("wofi --show drun"))
@@ -99,6 +99,7 @@ hl.bind(mod .. " + S", hl.dsp.exec_cmd("spotify"))
 hl.bind(mod .. " + V", hl.dsp.exec_cmd("code"))
 hl.bind(mod .. " + A", hl.dsp.exec_cmd("obsidian"))
 hl.bind(mod .. " + G", hl.dsp.exec_cmd("github-desktop"))
+hl.bind(mod .. " + W", hl.dsp.exec_cmd("jlab"))
 
 ---- FOCO Y MOVIMIENTO ----
 for _, d in ipairs({ "left", "right", "up", "down" }) do
